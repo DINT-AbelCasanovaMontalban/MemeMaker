@@ -19,8 +19,8 @@
     <DockPanel>
         <Grid DockPanel.Dock="Top">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -36,9 +36,9 @@
         <TextBlock x:Name="textoInferiorTextBlock" Grid.Column="0" Grid.Row="1">Texto Inferior</TextBlock>
             <TextBox x:Name="textoInferiorTextBox" Grid.Column="1" Grid.Row="1">Texto Inferior</TextBox>
         <TextBlock Grid.Column="0" Grid.Row="2">Alto</TextBlock>
-        <Slider x:Name="altoSlider" Value="5" Grid.Column="1" Grid.Row="2"></Slider>
+        <Slider x:Name="altoSlider" Minimum="100" Value="500" Maximum="1000" Grid.Column="1" Grid.Row="2"></Slider>
         <TextBlock Grid.Column="0" Grid.Row="3">Ancho</TextBlock>
-            <Slider x:Name="anchoSlider" Value="5" Grid.Column="1" Grid.Row="3"></Slider>
+            <Slider x:Name="anchoSlider" Minimum="100" Value="500" Maximum="1000" Grid.Column="1" Grid.Row="3"></Slider>
         <TextBlock Grid.Column="0" Grid.Row="4">Imagen</TextBlock>
             <TextBox x:Name="imagenTextBox" Grid.Column="1" Grid.Row="4"></TextBox>
         <TextBlock Grid.Column="0" Grid.Row="5">Borde</TextBlock>
@@ -46,8 +46,8 @@
         
         </Grid>
 
-        <Border DockPanel.Dock="Bottom">
-            <Grid Style="{StaticResource GridImagen}" Background="Aqua" Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}">
+        <Border Background="Black" Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}"> 
+            <Grid Background="Aqua" Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}">
 
                 <Image Source="{Binding ElementName=imagenTextBox,Path=Text}"></Image>
             
