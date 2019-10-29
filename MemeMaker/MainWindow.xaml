@@ -8,8 +8,11 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-        <Style TargetType="{x:Type }"
-        
+        <Style TargetType="{x:Type Grid}" x:Key="GridImagen">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
+        </Style>
+
     </Window.Resources>
     
     
@@ -20,7 +23,6 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -44,8 +46,8 @@
         
         </Grid>
 
-        <Border Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}">
-            <Grid Background="Aqua" Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}">
+        <Border DockPanel.Dock="Bottom">
+            <Grid Style="{StaticResource GridImagen}" Background="Aqua" Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}">
 
                 <Image Source="{Binding ElementName=imagenTextBox,Path=Text}"></Image>
             
