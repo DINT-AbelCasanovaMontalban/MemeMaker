@@ -1,0 +1,58 @@
+﻿<Window x:Class="MemeMaker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MemeMaker"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type }"
+        
+    </Window.Resources>
+    
+    
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="textoSuperiorTextBlock" Grid.Column="0" Grid.Row="0">Texto Superior</TextBlock>
+            <TextBox x:Name="textoSuperiorTextBox" Grid.Column="1" Grid.Row="0">Texto Superior</TextBox>
+        <TextBlock x:Name="textoInferiorTextBlock" Grid.Column="0" Grid.Row="1">Texto Inferior</TextBlock>
+            <TextBox x:Name="textoInferiorTextBox" Grid.Column="1" Grid.Row="1">Texto Inferior</TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="2">Alto</TextBlock>
+        <Slider x:Name="altoSlider" Value="5" Grid.Column="1" Grid.Row="2"></Slider>
+        <TextBlock Grid.Column="0" Grid.Row="3">Ancho</TextBlock>
+            <Slider x:Name="anchoSlider" Value="5" Grid.Column="1" Grid.Row="3"></Slider>
+        <TextBlock Grid.Column="0" Grid.Row="4">Imagen</TextBlock>
+            <TextBox x:Name="imagenTextBox" Grid.Column="1" Grid.Row="4"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="5">Borde</TextBlock>
+        <CheckBox Grid.Column="1" Grid.Row="5"></CheckBox>
+        
+        </Grid>
+
+        <Border Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}">
+            <Grid Background="Aqua" Width="{Binding ElementName=anchoSlider,Path=Value}" Height="{Binding ElementName=altoSlider,Path=Value}">
+
+                <Image Source="{Binding ElementName=imagenTextBox,Path=Text}"></Image>
+            
+            <TextBlock HorizontalAlignment="Center" Text="{Binding ElementName=textoSuperiorTextBox,Path=Text}"></TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding ElementName=textoInferiorTextBox,Path=Text}"></TextBlock>
+        </Grid>
+        </Border>
+
+    </DockPanel>
+</Window>
